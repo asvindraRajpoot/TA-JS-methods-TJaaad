@@ -106,7 +106,7 @@ function sendMessage(message,cb){
 
 */
 function first(cb){
-  return cb();
+  return cb;
 
   
 }
