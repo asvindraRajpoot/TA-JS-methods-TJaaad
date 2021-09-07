@@ -26,7 +26,7 @@ function addFive(number){
     - Returns a new array where 2 is added to each element
     - While doing so use the funciton addTwo
 */
-function addTwoToArray(array,addTwo){
+function addTwoToArray(array){
   let newArray=[];
   for(let i=0;i<array.length;i++){
     newArray.push(addTwo(array[i]));
@@ -39,7 +39,7 @@ function addTwoToArray(array,addTwo){
     - aeturns a new array where 2 is added to each element
     - while doing so use the funciton addThree
 */
-function addThreeToArray(array,addThree){
+function addThreeToArray(array){
   let newArray=[];
   for(let i=0;i<array.length;i++){
     newArray.push(addThree(array[i]));
@@ -53,7 +53,7 @@ function addThreeToArray(array,addThree){
     - aeturns a new array where 2 is added to each element
     - while doing so use the funciton addThree
 */
-function addFiveToArray(array,addFive){
+function addFiveToArray(array){
   let newArray=[];
   for(let i=0;i<array.length;i++){
     newArray.push(addFive(array[i]));
@@ -95,15 +95,7 @@ function changeArray(array,cb){
     console.log(sendMessage("Hello Prompt!", prompt));
 */
 
-function alertM(message){
-  alert(message);
-}
-function consolelog(message){
-  console.log(message);
-}
-function promt(message){
-  prompt(message);
-}
+
 function sendMessage(message,cb){
   return cb(message);
 }
@@ -113,10 +105,10 @@ function sendMessage(message,cb){
  Create a function named `first` that accepts an argument a function (callback) and return the same function defination.
 
 */
-function named(cb){
-  return function(){
+function first(cb){
+  return cb();
 
-  };
+  
 }
 
 
@@ -141,14 +133,12 @@ second();
   - return final varibale from the function.
   - also write the required code to call the function.
 */
-function nameA(message){
-  return message;
-}
+
 function callMe(cb){
   let final = cb();
   return final;
 }
-console.log(callMe(nameA(as)));
+let testA =callMe(function (){return 3;})
 // Data Starts (Don't change this)
 const  people = [
   { name: 'John Doe', age: 16 },
