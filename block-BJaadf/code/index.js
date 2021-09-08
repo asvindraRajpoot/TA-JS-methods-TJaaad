@@ -105,7 +105,8 @@ console.log(oddNumbers);
 let evenNumbers=(numbersThree.flat(Infinity)).filter(num=>num%2==0);
 console.log(evenNumbers);
 // Find the index of 10 in numbersThree array
-console.log((numbersThree.flat(Infinity)).indexOf(10));
+console.log(numbersThree.indexOf(30));
+
 // Reverse the values of numbersThree array
 console.log((numbersThree.reverse()).flat(Infinity));
 // Reverse the values of numbersTwo array
