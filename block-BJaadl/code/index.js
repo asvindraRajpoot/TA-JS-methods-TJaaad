@@ -12,8 +12,8 @@ let words = [
 
 // - Write a function findLongestWord that takes an array of words and returns the longest word from the array. (Use above array "words" to test it). If there are 2 with the same length, it should return the first occurrence.
  function findLongestWord(words){
-   let longestWord=words.filter((a)=>a.length>8);
-   console.log('inside the fun');
+   let longestWord=[...words].sort((a,b)=>a.length-b.length).pop();
+   
    return longestWord;
 
     
@@ -123,4 +123,4 @@ function averageWordLength(words2){
   avgLength=totalLength/(words2.length);
   console.log(avgLength);
 }
-averageWordLength(strings);
+averageWordLength(strings); 
