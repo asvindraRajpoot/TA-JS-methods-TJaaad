@@ -29,18 +29,14 @@ console.log(strings.join(' '));
 strings.shift();
 console.log(strings);
 // - Find all the words that contain 'is' use string method 'includes'
-for(let i=0;i<tempString.length;i++){
-  if(tempString[i].includes('is')){
-    console.log(tempString[i]);
-  }
-}
+let is =tempString.filter(str=>str.includes('is'));
+console.log(is);
 // - Find all the words that contain 'is' use string method 'indexOf'
-let sentecnce=tempString.join(' ');
 
-let index_first =sentecnce.indexOf('is',0);
-console.log(sentecnce.slice(0,index_first+2));
-let index_second = sentecnce.indexOf('is',3);
-console.log(sentecnce.slice(index_second,index_second+2));
+let is2 =tempString.filter(str=>str.indexOf('is')!==-1);
+console.log(is2);
+
+
 -// Check if all the numbers in numbers array are divisible by three use array method (every)
 
 
@@ -54,7 +50,7 @@ tempString.pop()
 // - Find largest number in numbers
 console.log(numbers.find(num=>num===numbers[numbers.length-1]));
 // - Find longest string in strings
-console.log (strings.find(str=>str.length>=10));
+console.log (strings.sort((a,b)=>a.length-b.length).pop());
 // - Find all the even numbers
 console.log(numbers.filter(num=>num%2===0));
 // - Find all the odd numbers
@@ -64,26 +60,25 @@ strings.unshift('Asvindra');
 //- Make a subset of numbers array [18,9,7,11]
 
 console.log(tempNumbers);
-console.log(tempNumbers.splice(3,4));
+console.log(tempNumbers.slice(3,7));
 // - Make a subset of strings array ['a','collection']
-console.log(tempString.splice(2,2));
+console.log(tempString.slice(2,4));
 // - Replace 12 & 18 with 1221 and 1881
 console.log(secondtempNumber);
 secondtempNumber.splice(1,1,1221);
 secondtempNumber.splice(3,3,1881);
 console.log(secondtempNumber);
 // - Replace words in strings array with the length of the word
-console.log(secondString);
-for(let i=0;i<secondString.length;i++)
-  {
-    secondString[i]=secondString[i].length;
-  }
-  console.log(secondString);
+let strlen= secondString.map(str=>str.length);
+
+ console.log(strlen);
 // - Find the sum of the length of words using above question
 
-console.log(secondString.reduce((acc,num)=>acc+num));
+console.log(strlen.reduce((acc,num)=>{
+  acc=acc+num;
+return acc;}));
 // - Customers Array
-var customers = [
+ var customers = [
   { firstname: 'Joe', lastname: 'Blogs' },
   { firstname: 'John', lastname: 'Smith' },
   { firstname: 'Dave', lastname: 'Jones' },
@@ -98,4 +93,17 @@ let names= customers.map(str=>str.firstname +" "+ str.lastname);
 // - Sort the array created above alphabetically
 console.log(names.sort());
 // - Create a new array that contains only user who has at least one vowel in the firstname.
-console.log(customers.filter(str=>str.firstname.includes('a' && 'o')));
+console.log(customers.filter(str=>{
+  if( str.firstname.includes('a')||
+      str.firstname.includes('e')||
+      str.firstname.includes('i')||
+      str.firstname.includes('o')||
+      str.firstname.includes('u'))
+    {
+      return true;
+    }
+    else{
+      return false;
+    }
+  }));
+    
