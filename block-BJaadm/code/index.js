@@ -29,9 +29,10 @@ let filteredName=peopelName.filter(n=>n.startsWith('P') || n.startsWith('J'));
 
 console.log(filteredName);
 // Log the length of filtered named of people in peopleName that starts with 'A' and 'C'
- let filArray= peopelName.filter(l=>(l.startsWith('A')) || (l.startsWith('C')));
- console.log(filArray.map(num=>num.length));
-// Log all the filtered male ('M') in persons array
+ let filArray= peopelName.filter(l=>(l.startsWith('A')) || (l.startsWith('C'))).length;
+console.log(filArray);
+ //console.log(filArray.map(num=>num.length));
+//Log all the filtered male ('M') in persons array
 console.log(persons.filter(n=>n.sex.includes('M')));
 // Log all the filtered female ('F') in persons array
 let filteredFemale= persons.filter(n=>n.sex.includes('F'));
@@ -45,7 +46,7 @@ console.log(persons.find(n=>n.name.startsWith('J')));
 // Find the first name that starts with 'P' in persons array and log the object
 console.log(persons.find(n=>n.name.startsWith('P')));
 // Find the first name that starts with 'J', grade is greater than 10 and is a female
-console.log(persons.find(n=>n.name.startsWith('J') && n.sex.startsWith('F') && n.grade));
+console.log(persons.find(n=>n.name.startsWith('J') && n.sex.startsWith('F') && n.grade>10));
 // Filter all the female from persons array and store in femalePersons array
 let femalePersons = persons.filter(n=>n.sex.startsWith('F'));
 console.log(femalePersons);
