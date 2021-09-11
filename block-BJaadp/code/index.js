@@ -95,29 +95,29 @@ Output:
 */
 
 
-// let n=1;
-//   let fruitsObj= fruitBasket.reduce((acc,cur,i)=>{
-//        if(Object.keys(acc) && acc.hasOwnProperty(cur)){
+let n=1;
+  let fruitsObj= fruitBasket.reduce((acc,cur,i)=>{
+       if(Object.keys(acc) && acc.hasOwnProperty(cur)){
 
-//         acc[cur]=acc[cur]+1;
+        acc[cur]=acc[cur]+1;
         
         
-//        }else{
-//          n=1;
+       }else{
+         n=1;
          
-//         acc[cur]=n;
-//        }
+        acc[cur]=n;
+       }
    
 
        
-//      console.log(i,acc);
-//     return acc;
+     console.log(i,acc);
+    return acc;
 
    
-//  },{});
+ },{});
    
 
-// console.log(fruitsObj);
+console.log(fruitsObj);
 /* 
 
 Use the fruitBasket array to create an array of array. Each array will contain two values name of fruit and number of times
@@ -129,102 +129,81 @@ Output:
 */
 
 //console.log(fruitBasket);
-let p=1;
-  let fruitsObj2= fruitBasket.reduce((acc,cur,i)=>{
+let keys= Object.keys(fruitsObj);
+let values=Object.values(fruitsObj);
+  let fruitsArray= keys.reduce((acc,cv)=>{
+    acc=acc.concat([[cv,fruitsObj[cv]]]);
        
-         if(acc.length<5){
-
-         
-        let arr=[];
-         p=1;
-         
-        // acc[cur]=p;
-        arr.push(cur,p);
-        acc.push(arr);
-         }else{
-          if(arr[0]){
-            arr[1]=arr[1]+1;
-  
-          }
-         
-        
-        
-        console.log(cur);
-       }
-   
-
-       
-    // console.log(i,acc);
     return acc;
 
    
  },[]);
    
 
-//console.log(fruitsObj2);
+console.log(fruitsArray);
 
 
 
-// const data = [
-//   [1, 2, 3],
-//   [4, 5, 6],
-//   [7, 8, 9],
-//   [10, 11, 12],
-// ];
+const data = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [10, 11, 12],
+];
 
-// // Using reduce flat data array
-// let dataFlat=data.reduce((acc,cur,j)=>{
-//   for(let i=0;i<cur.length;i++){
-//      acc.push(cur[i]);
-//   }
+// Using reduce flat data array
+let dataFlat=data.reduce((acc,cur,j)=>{
+  for(let i=0;i<cur.length;i++){
+     acc.push(cur[i]);
+  }
  
    
  
 
-// return acc;
+return acc;
 
-// },[]);
+},[]);
 
 
-// console.log(dataFlat);
+console.log(dataFlat);
 
-// const dataTwo = [
-//   [1, 2, 3],
-//   [4, 5, 6],
-//   [7, 8, 9],
-//   [[10, 11], 12],
-// ];
+const dataTwo = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [[10, 11], 12],
+];
 
-// // Using reduce flat dataTwo array
-// let dataFlatTwo=dataTwo.reduce((acc,cur,j)=>{
-//   for(let i=0;i<cur.length;i++){
-//     if(j!==3){
-//         acc.push(cur[i]);
+// Using reduce flat dataTwo array
+let dataFlatTwo=dataTwo.reduce((acc,cur,j)=>{
+  for(let i=0;i<cur.length;i++){
+    if(j!==3){
+        acc.push(cur[i]);
    
-//     }else{
-//       if(i==0){
-//         acc.push(cur[i][0])
-//         acc.push(cur[i][1])
-//       }
-//       else{
-//         acc.push(cur[i]);
-//       }
+    }else{
+      if(i==0){
+        acc.push(cur[i][0])
+        acc.push(cur[i][1])
+      }
+      else{
+        acc.push(cur[i]);
+      }
       
      
-//     }
+    }
     
      
-//   }
+  }
   
 
    
  
 
-// return acc;
+return acc;
 
-// },[]);
+},[]);
 
-// console.log(dataFlatTwo);
+console.log(dataFlatTwo);
 
 // /*
 
@@ -236,48 +215,48 @@ let p=1;
 //   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
 // */
 
-// // let pipeline = [
-// //   increment,
-// //   double,
-// //   decrement,
-// //   decrement,
-// //   double,
-// //   triple,
-// //   half,
-// //   increment,
-// // ];
+let pipeline = [
+  increment,
+  double,
+  decrement,
+  decrement,
+  double,
+  triple,
+  half,
+  increment,
+];
 
-// // function increment(value) {
+function increment(value) {
   
-// //   return value+1;
+  return value+1;
   
-// // }
-// // function double(value) {
+}
+function double(value) {
  
-// //   return value*2;
+  return value*2;
   
-// // }
-// // function decrement(value) {
+}
+function decrement(value) {
  
-// //   return value-1;
+  return value-1;
   
-// // }
-// // function triple(value) {
+}
+function triple(value) {
  
-// //   return value*3;
+  return value*3;
   
-// // }
-// // function half(value) {
+}
+function half(value) {
  
-// //   return Math.round(value/2);
+  return Math.round(value/2);
   
-// // }
+}
 
-// // let out=pipeline.reduce((acc,cur)=>{
-// //   acc=cur(acc);
-// //   return acc;
-// // },3);
-// // console.log(out);
+let out=pipeline.reduce((acc,cur)=>{
+  acc=cur(acc);
+  return acc;
+},3);
+console.log(out);
 
 // // /*
 // // Using the pipeline variable that contains the collection of functions, taking the initial value 3 find the output.
@@ -295,25 +274,25 @@ let p=1;
 // //   ...
 // // */
 
-// // let pipeline2 = [
-// //   increment,
-// //   half,
-// //   double,
-// //   decrement,
-// //   decrement,
-// //   triple,
-// //   double,
-// //   triple,
-// //   half,
-// //   increment,
-// //   triple,
-// // ];
+let pipeline2 = [
+  increment,
+  half,
+  double,
+  decrement,
+  decrement,
+  triple,
+  double,
+  triple,
+  half,
+  increment,
+  triple,
+];
 
-// // // Find the output using pipeline2 the initial value if 8
+// Find the output using pipeline2 the initial value if 8
 
-// // let out2=pipeline2.reduce((acc,cur)=>{
-// //   acc=cur(acc);
+let out2=pipeline2.reduce((acc,cur)=>{
+  acc=cur(acc);
   
-// //   return acc;
-// // },8);
-// // console.log(out2);
+  return acc;
+},8);
+console.log(out2);
